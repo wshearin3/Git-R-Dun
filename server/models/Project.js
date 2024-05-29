@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../../utils/dateFormat');
+//const dateFormat = require('../../utils/dateFormat');
 
 const projectSchema = new Schema({
     name: {
@@ -27,7 +27,7 @@ const projectSchema = new Schema({
    
   });
   
-  const Project = model('Project', ProjectSchema);
+  const Project = model('Project', projectSchema);
   
   module.exports = Project;
   

@@ -13,3 +13,33 @@ const PORT = process.env.PORT || 3001;
 
 
 const hbs = exphbs.create({ helpers });
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {
+      maxAge: 300000,
+      httpOnly: false,
+      secure: false,
+      sameSite: 'strict',
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
+  };
+
+  app.use(session(sess));
+
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+//start point for routes
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening at http://localhost:3001'));
+});

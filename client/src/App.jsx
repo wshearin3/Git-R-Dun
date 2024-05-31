@@ -1,16 +1,37 @@
 import * as React from 'react'
 
 // 1. import `ChakraProvider` component
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
+// import {
+//   ApolloClient,
+//   InMemoryCache,
+//   ApolloProvider as Provider,
+//   createHttpLink,
+// } from '@apollo/client';
+
+// const httpLink = createHttpLink ({
+//   uri: 'http://localhost:3001/graphql',
+// });
+
+// const client = new ApolloClient({
+//   link: httpLink,
+//   cache: new InMemoryCache(),
+// });
+
+// export default function ApolloProvider({ children }) {
+//   return <Provider client={client}>{children}</Provider>;
+// }
 
 function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      <TheRestOfYourApplication />
+      <h1>Hello World!</h1>
     </ChakraProvider>
   )
 }
+
+export default App;
 
 //ChakraBaseProvider#
 //As of v2.4.2 there is now the addition of ChakraBaseProvider. This is a minimal version of ChakraProvider that only supplies theme tokens and not the default component theming.

@@ -20,6 +20,13 @@ const resolvers = {
         }
 
     },
+
+    Mutation: {
+        addUser: async (parent, { username }) => {
+            const user = await User.create({username});
+            return {user};
+        }
+    }
 };
 
 module.exports = resolvers;

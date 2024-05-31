@@ -6,6 +6,7 @@ const typeDefs = `
     id: ID!
     username: String!
   }
+
   type Project {
     id: ID!
     name: String!
@@ -14,11 +15,15 @@ const typeDefs = `
     members: [User!]!
     createdAt: String!
   }
+
   type Query {
     users: [User!]
     projects: [Project!]!
     }
  
+  type Mutation{
+    addUser(username: String!): User!
+  } 
   `;
 
   module.exports = typeDefs;

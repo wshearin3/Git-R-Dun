@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Project } = require('../models');
 
 const resolvers = {
     Query: {
@@ -10,6 +10,14 @@ const resolvers = {
                 throw new Error('Failed to fetch users');
             }
         },
+        projects: async () => {
+            try {
+                const projects = await Project.find();
+                return projects;
+            } catch (error) {
+                throw new Error('Failed to fetch projects');
+            }
+        }
 
     },
 };

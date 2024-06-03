@@ -23,10 +23,14 @@ const resolvers = {
 
     Mutation: {
         addUser: async (parent, { username }) => {
-            const user = await User.create({username});
-            return {user};
+            const user = await User.create({ username });
+            return { user };
+        },
+        addProject: async (_, { name, description, owner, members }) => {
+            const project = new Project({ name, description, owner, members });
+            await project.save();
+            return project.populate('owner members').execPopulate();
         }
-    }
-};
+    };
 
-module.exports = resolvers;
+    module.exports = resolvers;

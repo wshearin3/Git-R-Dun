@@ -28,7 +28,8 @@ const resolvers = {
         },
         addProject: async (parent, { name, description, owner, members }) => {
             const project = await Project.create({ name, description, owner, members });
-            return {project};
+            console.log(project);
+            return project;
         }
     }
 }

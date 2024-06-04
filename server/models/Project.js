@@ -23,11 +23,16 @@ const projectSchema = new Schema({
       type: Date,
       default: Date.now,
       get: (timestamp) => dateFormat(timestamp),
-    },
-   
+    }
+          
   });
+  
   
   const Project = model('Project', projectSchema);
   
+  projectSchema.virtual("id").get( function () {
+    return this._id.toString() 
+   });
+
   module.exports = Project;
   

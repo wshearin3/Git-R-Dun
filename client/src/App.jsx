@@ -1,4 +1,5 @@
 import * as React from 'react'
+import TaskList from './components/taskList';
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react';
@@ -27,6 +28,7 @@ function App() {
   return (
     <ChakraProvider>
       <h1>Hello World!</h1>
+      <TaskList />
     </ChakraProvider>
   )
 }

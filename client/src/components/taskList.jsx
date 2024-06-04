@@ -1,5 +1,5 @@
 import react, { useState } from 'react';
-import { VStack, Box } from '@chakra-ui/react';
+import { VStack, Flex, Box } from '@chakra-ui/react';
 
 
 
@@ -8,14 +8,19 @@ function TaskList (){
    const [tasks, setTasks] = useState(
     [
         {
-            name: "Task One"
-
+            name: "Task One",
+            owner: "Trey",
+            status: "Done"
         },
         {
-            name: "Task Two"
+            name: "Task Two",
+            owner: "Adam",
+            status: "In Progress"
         },
         {
-            name: "Task Three"
+            name: "Task Three",
+            owner: "Tabi",
+            status: "Not Started"
         }
     ]
    )  
@@ -23,12 +28,14 @@ function TaskList (){
     
 
     return (
-    <VStack className="task-list">
+    <VStack spacing={8} w="100%" bgColor="gray.100" px="6" py="6" className="task-list">
               
         {tasks.map( task => 
-            <Box>
-                {task.name}
-            </Box>
+            <Flex w="100%" bgColor="gray.50" h="100px" borderRadius="10px" shadow="md" align="center" px="5" justify="space-evenly">
+                <Box>{task.name}</Box>
+                <Box>{task.owner}</Box>
+                <Box>{task.status}</Box>
+            </Flex>
         ) }
     </VStack>
     )

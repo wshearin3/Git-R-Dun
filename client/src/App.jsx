@@ -27,7 +27,7 @@ function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      <h1>Hello World!</h1>
+      <h1>Git-R-Dun</h1>
       <TaskList />
     </ChakraProvider>
   )

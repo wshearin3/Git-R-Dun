@@ -26,10 +26,9 @@ const resolvers = {
             const user = await User.create({ username });
             return { user };
         },
-        addProject: async (_, { name, description, owner, members }) => {
-            const project = new Project({ name, description, owner, members });
-            await project.save();
-            return project.populate('owner members').execPopulate();
+        addProject: async (parent, { name, description, owner, members }) => {
+            const project = await Project.create({ name, description, owner, members });
+            return {project};
         }
     }
 }

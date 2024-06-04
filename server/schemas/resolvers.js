@@ -31,6 +31,6 @@ const resolvers = {
             await project.save();
             return project.populate('owner members').execPopulate();
         }
-    };
-
+    }
+}
     module.exports = resolvers;

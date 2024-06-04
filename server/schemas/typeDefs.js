@@ -1,4 +1,4 @@
-const {gql} = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = `
 
@@ -19,11 +19,14 @@ const typeDefs = `
   type Query {
     users: [User!]
     projects: [Project!]!
+    project(id: ID!): Project
     }
  
   type Mutation{
     addUser(username: String!): User!
+    addProject(name: String!, description: String!, owner: ID!, members: [ID]): Project
+    removeProject(projectId: ID!): Project
   } 
   `;
 
-  module.exports = typeDefs;
+module.exports = typeDefs;

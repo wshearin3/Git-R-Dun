@@ -1,5 +1,6 @@
 import * as React from 'react'
 import TaskList from './components/taskList';
+import { TaskProvider } from './context/TaskContext';
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react';
@@ -27,8 +28,10 @@ function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      <h1>Git-R-Dun</h1>
-      <TaskList />
+      <TaskProvider>
+        <h1>Git-R-Dun</h1>
+        <TaskList />
+      </TaskProvider>
     </ChakraProvider>
   )
 }

@@ -1,31 +1,14 @@
-import react, { useState } from 'react';
+import react, { useContext, useState } from 'react';
 import { VStack, Flex, Box } from '@chakra-ui/react';
+import { TaskContext } from '../context/TaskContext';
 
 
 
 function TaskList (){
 
-   const [tasks, setTasks] = useState(
-    [
-        {
-            name: "Task One",
-            owner: "Trey",
-            status: "Done"
-        },
-        {
-            name: "Task Two",
-            owner: "Adam",
-            status: "In Progress"
-        },
-        {
-            name: "Task Three",
-            owner: "Tabi",
-            status: "Not Started"
-        }
-    ]
-   )  
+    const {tasks, getTasksFromDatabase, addTaskToDatabase} = useContext(TaskContext);
 
-    
+   
 
     return (
     <VStack spacing={8} w="100%" h="100vh" bgColor="gray.100" px="6" py="6" className="task-list">

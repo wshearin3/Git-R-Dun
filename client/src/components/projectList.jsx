@@ -11,7 +11,7 @@ function ProjectList (){
    
 
     return (
-    <VStack spacing={8} w="100%" h="100vh" bgColor="gray.100" px="6" py="6" className="task-list">
+    <VStack spacing={8} w="100%" h="100vh" bgColor="gray.100" px="6" py="6" className="project-list">
               
         {tasks.map( task => 
             <Flex w="100%" bgColor="gray.50" h="80px" borderRadius="10px" shadow="md" align="center" px="5" justify="space-between">

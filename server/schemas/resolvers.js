@@ -29,9 +29,9 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username }) => {
-      const user = await User.create({ username });
-      return { user };
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      return user;
     },
     addProject: async (parent, { name, description, owner, members }) => {
       const project = await Project.create({

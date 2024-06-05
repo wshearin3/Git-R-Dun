@@ -5,6 +5,9 @@ const typeDefs = `
   type User {
     id: ID!
     username: String!
+    email: String!
+    password: String!
+    projects: [Project]
   }
 
   type Project {
@@ -33,7 +36,7 @@ const typeDefs = `
     }
  
   type Mutation{
-    addUser(username: String!): User!
+    addUser(username: String!, email: String!, password: String! ): User!
     addProject(name: String!, description: String!, owner: ID!, members: [ID]): Project
     removeProject(projectId: ID!): Project
     addTask(name: String!, projectId: ID!, owner: ID!, status: String): Task

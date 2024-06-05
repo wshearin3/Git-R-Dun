@@ -15,8 +15,8 @@ function ProjectList (){
               
         {tasks.map( task => 
             <Flex w="100%" bgColor="gray.50" h="80px" borderRadius="10px" shadow="md" align="center" px="5" justify="space-between">
-                <Box>{task.name}</Box>
-                <Box>{task.owner}</Box>
+                <Box>{project.name}</Box>
+                <Box>{project.owner}</Box>
                 <Box 
                     fontSize={11}
                     color={'gray.400'}
@@ -25,15 +25,15 @@ function ProjectList (){
                     textAlign="center"
                     fontWeight="bold"
                     bgColor={
-                        task.status =="Done"
+                        project.status =="Done"
                         ? "green.700"
-                        : task.status =="In Progress"
+                        : project.status =="In Progress"
                         ? "blue.800"
-                        : task.status =="Not Started"
+                        : project.status =="Not Started"
                         ? "red.600"
                         : ""
                     }
-                >{task.status}</Box>
+                >{project.status}</Box>
             </Flex>
         ) }
     </VStack>

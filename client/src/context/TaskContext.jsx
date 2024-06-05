@@ -1,4 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import { ApolloProvider, useQuery, gql } from '@apollo/client';
+import {Query} from '../../../server/schemas/resolvers.js';
 
 // Create the context
 export const TaskContext = createContext();
@@ -11,12 +13,18 @@ export const TaskProvider = ({ children }) => {
     { id: 3, name: 'Task 3', owner: 'Bob', status: 'Not Started' },
   ]);
 
-  const getTasksFromDatabase = () => {
-    /**
-     * This function is intended to fetch tasks from the database.
-     * It should make an API call or interact with a database library
-     * to retrieve the tasks and update the 'tasks' state.
-     */
+  const { loading, error, data } = useQuery(tasks, {
+    client,
+    onCompleted: (data) => setTasks(data.tasks),
+  });
+
+  const getTasksFromDatabase = async () => {
+    try{
+   const {data} = await client.query({Query: tasks});
+   setTasks(data.tasks);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    }
   };
 
   const addTaskToDatabase = (newTask) => {
@@ -30,6 +38,13 @@ export const TaskProvider = ({ children }) => {
      * to include the new task.
      */
   };
+
+  useEffect(() => {
+    if (!loading && !error && data) {
+      setTasks(data.tasks);
+    }
+  }, [loading, error, data]);
+
 
   return (
     <TaskContext.Provider value={{ tasks, getTasksFromDatabase, addTaskToDatabase }}>

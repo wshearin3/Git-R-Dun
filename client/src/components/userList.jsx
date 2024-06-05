@@ -15,8 +15,8 @@ function UserList (){
               
         {tasks.map( task => 
             <Flex w="100%" bgColor="gray.50" h="80px" borderRadius="10px" shadow="md" align="center" px="5" justify="space-between">
-                <Box>{project.name}</Box>
-                <Box>{project.owner}</Box>
+                <Box>{user.name}</Box>
+                <Box>{user.owner}</Box>
                 <Box 
                     fontSize={11}
                     color={'gray.400'}
@@ -24,20 +24,12 @@ function UserList (){
                     borderRadius={"7px"}
                     textAlign="center"
                     fontWeight="bold"
-                    bgColor={
-                        project.status =="Done"
-                        ? "green.700"
-                        : project.status =="In Progress"
-                        ? "blue.800"
-                        : project.status =="Not Started"
-                        ? "red.600"
-                        : ""
-                    }
-                >{project.status}</Box>
+
+                >{User.status}</Box>
             </Flex>
         ) }
     </VStack>
     )
 }
 
-export default ProjectList;
+export default UserList;

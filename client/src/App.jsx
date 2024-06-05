@@ -4,6 +4,7 @@ import { TaskProvider } from './context/TaskContext';
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react';
+import { ApolloProvider } from '@apollo/client';
 // import {
 //   ApolloClient,
 //   InMemoryCache,
@@ -28,10 +29,12 @@ function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      <TaskProvider>
-        <h1>Git-R-Dun</h1>
-        <TaskList />
-      </TaskProvider>
+      <ApolloProvider>
+        <TaskProvider>
+          <h1>Git-R-Dun</h1>
+          <TaskList />
+        </TaskProvider>
+      </ApolloProvider>
     </ChakraProvider>
   )
 }

@@ -1,24 +1,21 @@
 const { Schema, model } = require("mongoose");
 
 const taskSchema = new Schema({
-  title: {
+  name: {
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-  },
   status: {
     type: String,
-    enum: ["Todo", "In Progress", "Done"],
-    default: "Todo",
+    enum: ["Not Started", "In Progress", "Done"],
+    default: "Not Started",
   },
-  project: {
+  projectId: {
     type: Schema.Types.ObjectId,
     ref: "Project",
     required: true,
   },
-  assignedTo: {
+  owner: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
@@ -28,4 +25,6 @@ const taskSchema = new Schema({
   },
 });
 
-module.exports = model("Task", taskSchema);
+const Task = model("Task", taskSchema);
+
+module.exports = Task;

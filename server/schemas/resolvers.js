@@ -1,4 +1,4 @@
-const { User, Project } = require("../models");
+const { User, Project, Task } = require("../models");
 
 const resolvers = {
   Query: {
@@ -18,6 +18,14 @@ const resolvers = {
         throw new Error("Failed to fetch projects");
       }
     },
+    tasks: async () => {
+        try {
+            const tasks = await Tasks.find();
+            return tasks;
+        } catch (error) {
+            throw new Error("Failed to fetch tasks");
+        }
+    }
   },
 
   Mutation: {
@@ -34,6 +42,16 @@ const resolvers = {
       });
       console.log(project);
       return project;
+    },
+    addTask: async (parent, {name, status, projectId, owner }) => {
+        const task = await Task.create({
+            name,
+            status,
+            projectId,
+            owner,
+        });
+        console.log(task)
+        return task;
     },
     // Copied currently
     // updateProject: async (parent, { id, name, description, members }) => {

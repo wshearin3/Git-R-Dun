@@ -4,11 +4,10 @@ import { TaskProvider } from './context/TaskContext';
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider, Heading } from '@chakra-ui/react';
-import { ApolloProvider } from '@apollo/client';
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloProvider as Provider,
+  ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
 import { Outlet } from 'react-router-dom';
@@ -46,7 +45,9 @@ export default App;
 //As of v2.4.2 there is now the addition of ChakraBaseProvider. This is a minimal version of ChakraProvider that only supplies theme tokens and not the default component theming.
 
 //One of the biggest causes of the large initial JS payload is the size of the component themes. With the following approach, you get to apply the default themes for just the components you need by using extendBaseTheme.
-// notes import {
+
+// notes
+// import {
 //   ChakraBaseProvider,
 //   extendBaseTheme,
 //   theme as chakraTheme,

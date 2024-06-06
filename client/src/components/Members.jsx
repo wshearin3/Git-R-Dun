@@ -5,7 +5,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Heading,
   Stack,
   Text,

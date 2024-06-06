@@ -17,38 +17,39 @@ function TaskList() {
       className="task-list"
     >
       {tasks.map((task) => (
-          <Flex key={task.id}
-            w="100%"
-            bgColor="gray.50"
-            h="80px"
-            borderRadius="10px"
-            shadow="md"
-            align="center"
-            px="5"
-            justify="space-between"
+        <Flex
+          key={task.id}
+          w="100%"
+          bgColor="gray.50"
+          h="80px"
+          borderRadius="10px"
+          shadow="md"
+          align="center"
+          px="5"
+          justify="space-between"
+        >
+          <Box>{task.name}</Box>
+          <Box>{task.owner}</Box>
+          <Box
+            fontSize={11}
+            color={"gray.400"}
+            width={"8%"}
+            borderRadius={"7px"}
+            textAlign="center"
+            fontWeight="bold"
+            bgColor={
+              task.status == "Done"
+                ? "green.700"
+                : task.status == "In Progress"
+                ? "blue.800"
+                : task.status == "Not Started"
+                ? "red.600"
+                : ""
+            }
           >
-            <Box>{task.name}</Box>
-            <Box>{task.owner}</Box>
-            <Box
-              fontSize={11}
-              color={"gray.400"}
-              width={"8%"}
-              borderRadius={"7px"}
-              textAlign="center"
-              fontWeight="bold"
-              bgColor={
-                task.status == "Done"
-                  ? "green.700"
-                  : task.status == "In Progress"
-                  ? "blue.800"
-                  : task.status == "Not Started"
-                  ? "red.600"
-                  : ""
-              }
-            >
-              {task.status}
-            </Box>
-          </Flex>
+            {task.status}
+          </Box>
+        </Flex>
       ))}
     </VStack>
   );

@@ -3,23 +3,24 @@ import TaskList from './components/taskList';
 import { TaskProvider } from './context/TaskContext';
 
 // 1. import `ChakraProvider` component
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Heading } from '@chakra-ui/react';
 import { ApolloProvider } from '@apollo/client';
-// import {
-//   ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider as Provider,
-//   createHttpLink,
-// } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider as Provider,
+  createHttpLink,
+} from '@apollo/client';
+import { Outlet } from 'react-router-dom';
 
-// const httpLink = createHttpLink ({
-//   uri: 'http://localhost:3001/graphql',
-// });
+const httpLink = createHttpLink ({
+  uri: 'http://localhost:3001/graphql',
+});
 
-// const client = new ApolloClient({
-//   link: httpLink,
-//   cache: new InMemoryCache(),
-// });
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 // export default function ApolloProvider({ children }) {
 //   return <Provider client={client}>{children}</Provider>;
@@ -29,10 +30,10 @@ function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      <ApolloProvider>
+      <ApolloProvider client={client}>
         <TaskProvider>
-          <h1>Git-R-Dun</h1>
-          <TaskList />
+          <Heading as='h1' size='2xl' >Git-R-Dun</Heading>
+          <Outlet />
         </TaskProvider>
       </ApolloProvider>
     </ChakraProvider>

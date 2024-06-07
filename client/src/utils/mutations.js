@@ -41,6 +41,21 @@ export const ADD_PROJECT = gql`
   }
 `;
 
-// export const ADD_TASK = gql`
-//   mutation add
-// `;
+export const ADD_TASK = gql`
+  mutation addTask(
+    $name: String!, $projectId: ID!, $owner: ID!, $status: String) {
+    addTask(
+      name: $name
+      projectId: $projectId
+      owner: $owner
+      status: $status
+    ) {
+      _id
+      name
+      status
+      projectId
+      owner
+      createdAt
+    }
+  }
+`;

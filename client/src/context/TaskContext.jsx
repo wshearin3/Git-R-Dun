@@ -1,4 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_PROJECTS } from '../utils/queries';
 
 // Create the context
 export const TaskContext = createContext();
@@ -11,6 +13,21 @@ export const TaskProvider = ({ children }) => {
     { id: 3, name: 'Task 3', owner: 'Bob', status: 'Not Started' },
   ]);
 
+  const [projects, setProjects] = useState([]);
+
+  const { loading, error, data: projectData } = useQuery(QUERY_PROJECTS);
+
+  useEffect(() => {
+    if (!loading && !error && projectData && projectData.projects) {
+      setProjects(projectData.projects);
+      console.log(projectData.projects);
+      console.log(projects);
+    }
+  }, [loading, error, projectData]);
+  useEffect(() =>
+  {
+    console.log(projects);
+  },[projects])
   const getTasksFromDatabase = () => {
     /**
      * This function is intended to fetch tasks from the database.

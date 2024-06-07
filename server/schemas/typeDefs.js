@@ -32,7 +32,7 @@ const typeDefs = `
     project(id: ID!): Project
     tasks: [Task]!
     }
- 
+
   type Mutation{
     addUser(username: String!, email: String!, password: String! ): User!
     addProject(name: String!, description: String!, owner: ID!, members: [ID]): Project

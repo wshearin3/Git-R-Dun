@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const QUERY_PROJECTS = gql`
   query getProjects {
-    thoughts {
+    projects {
       _id
       name
       description
@@ -20,20 +20,20 @@ export const QUERY_USERS = gql`
   query Users {
     users {
       username
-      id
+      _id
     }
   }
 `;
 
 export const QUERY_TASKS = gql`
   query getTasks {
-    thoughts {
-      _id: ID!
-      name: String!
-      status: String!
-      projectId: ID!
-      owner: String!
-      createdAt: String
+    tasks {
+      _id
+      name
+      status
+      projectId
+      owner
+      createdAt
     }
   }
 `;

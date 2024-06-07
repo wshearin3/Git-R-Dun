@@ -17,12 +17,23 @@ export const QUERY_PROJECTS = gql`
 `;
 
 export const QUERY_USERS = gql`
-query Users {
-  users {
-    username
-    id
+  query Users {
+    users {
+      username
+      id
+    }
   }
-}
 `;
 
- 
+export const QUERY_TASKS = gql`
+  query getTasks {
+    thoughts {
+      _id: ID!
+      name: String!
+      status: String!
+      projectId: ID!
+      owner: String!
+      createdAt: String
+    }
+  }
+`;

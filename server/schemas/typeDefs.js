@@ -1,7 +1,7 @@
 const typeDefs = `
 
   type User {
-    id: ID!
+    _id: ID!
     username: String!
     email: String!
     password: String!
@@ -9,7 +9,7 @@ const typeDefs = `
   }
 
   type Project {
-    id: ID!
+    _id: ID!
     name: String!
     description: String
     owner: User!
@@ -18,7 +18,7 @@ const typeDefs = `
   }
 
   type Task {
-    id: ID!
+    _id: ID!
     name: String!
     status: String!
     projectId: ID!

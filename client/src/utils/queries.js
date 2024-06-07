@@ -3,12 +3,12 @@ import { gql } from "@apollo/client";
 export const QUERY_PROJECTS = gql`
   query getProjects {
     thoughts {
-      id
+      _id
       name
       description
       owner
       members {
-        id
+        _id
         username
       }
       createdAt

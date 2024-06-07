@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Homepage (){
     return(
-        <Link to={"/projectpage"}>
+        <Link to={"/userpage"}>
             <Button colorScheme='blue'>User Page</Button>
   </Link>
     )

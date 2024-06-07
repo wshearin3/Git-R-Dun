@@ -32,7 +32,7 @@ function App() {
     <ChakraProvider>
       <ApolloProvider client={client}>
         <TaskProvider>
-          <Heading as='h1' size='2xl' >Git-R-Dun</Heading>
+          <Heading as='h1' size='2xl' my="5px" >Git-R-Dun</Heading>
           <Outlet />
         </TaskProvider>
       </ApolloProvider>

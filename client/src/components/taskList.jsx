@@ -1,6 +1,8 @@
 import react, { useContext, useState } from "react";
-import { VStack, Flex, Box, Heading, Text } from "@chakra-ui/react";
+import { VStack, Flex, Box, Heading, Text, Stack, Button } from "@chakra-ui/react";
 import { TaskContext } from "../context/TaskContext";
+import { Link } from "react-router-dom";
+
 
 function TaskList() {
   const { tasks, getTasksFromDatabase, addTaskToDatabase } =
@@ -30,7 +32,7 @@ function TaskList() {
       <VStack
         spacing={8}
         w="100%"
-        h="100vh"
+
         bgColor="gray.100"
         px="6"
         py="6"
@@ -72,6 +74,24 @@ function TaskList() {
           </Flex>
         ))}
       </VStack>
+      <Stack spacing={4} direction='row' align='center' my="2px">
+        <Link to={"/"}>
+
+          <Button colorScheme='teal' size='sm'>
+            Home Page
+          </Button>
+
+        </Link>
+      </Stack>
+      <Stack spacing={4} direction='row' align='center' my="2px">
+        <Link to={"/userpage"}>
+
+          <Button colorScheme='teal' size='sm'>
+            User Page
+          </Button>
+
+        </Link>
+      </Stack>
     </>
   );
 }

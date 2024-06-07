@@ -16,4 +16,13 @@ export const QUERY_PROJECTS = gql`
   }
 `;
 
+export const QUERY_USERS = gql`
+query Users {
+  users {
+    username
+    id
+  }
+}
+`;
+
  

@@ -83,6 +83,15 @@ function TaskList() {
 
         </Link>
       </Stack>
+      <Stack spacing={4} direction='row' align='center' my="2px">
+        <Link to={"/userpage"}>
+
+          <Button colorScheme='teal' size='sm'>
+            User Page
+          </Button>
+
+        </Link>
+      </Stack>
     </>
   );
 }

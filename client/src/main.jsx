@@ -3,6 +3,7 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import TaskList from "./components/taskList";
 import Members from "./components/Members";
+import Homepage from "./components/Homepage";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Homepage />,
+      },
+      {
+        path: "/projectpage",
         element: <TaskList />,
       },
       {

@@ -3,14 +3,12 @@ import { Heading, Stack  } from '@chakra-ui/react'
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
 
-function handleClick() {
 
-}
 
 function Homepage (){
     return(
-        <Link to={"/projectpage"}>
-            <Button onClick={handleClick()} colorScheme='blue'>User Page</Button>
+        <Link to={"/userpage"}>
+            <Button colorScheme='blue'>User Page</Button>
   </Link>
     )
 }

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import TaskList from "./components/taskList";
 import Members from "./components/Members";
 import Homepage from "./components/Homepage";
+import Userpage from "./components/Userpage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/members",
         element: <Members />,
+      },
+      {
+        path: "/userpage",
+        element: <Userpage />,
       },
       // , {
       //   path: '/tasklist',

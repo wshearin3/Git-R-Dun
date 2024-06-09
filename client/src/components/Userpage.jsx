@@ -22,7 +22,7 @@ function Userpage() {
                             <Stack spacing={3}>
                                 <Input placeholder='Project Name' size='sm' />
                                 <Input placeholder='Project Description' size='sm' />
-                                <Select placeholder='Select option'>
+                                <Select placeholder='Select Members'>
                                     <option value='option1'>User 1</option>
                                     <option value='option2'>User 2</option>
                                     <option value='option3'>User 3</option>
@@ -71,6 +71,15 @@ function Userpage() {
                                 </ul>
                             </Text>
                         </Box>
+                        <Stack spacing={4} direction='row' align='center' my="2px">
+        <Link to={"/"}>
+
+          <Button colorScheme='blue' size='sm'>
+            Home Page
+          </Button>
+
+        </Link>
+      </Stack>
                     </Stack>
                 </CardBody>
             </Card>

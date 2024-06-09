@@ -8,6 +8,7 @@ export const TaskContext = createContext();
 // Create the provider component
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([
+    { id: 0, name: 'Task Name', owner: 'Task Owner', status: 'Status' },
     { id: 1, name: 'Task 1', owner: 'John', status: 'Done' },
     { id: 2, name: 'Task 2', owner: 'Jane', status: 'In Progress' },
     { id: 3, name: 'Task 3', owner: 'Bob', status: 'Not Started' },

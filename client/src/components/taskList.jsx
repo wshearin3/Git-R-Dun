@@ -77,7 +77,7 @@ function TaskList() {
       <Stack spacing={4} direction='row' align='center' my="2px">
         <Link to={"/"}>
 
-          <Button colorScheme='teal' size='sm'>
+          <Button colorScheme='blue' size='sm'>
             Home Page
           </Button>
 
@@ -86,7 +86,7 @@ function TaskList() {
       <Stack spacing={4} direction='row' align='center' my="2px">
         <Link to={"/userpage"}>
 
-          <Button colorScheme='teal' size='sm'>
+          <Button colorScheme='purple' size='sm'>
             User Page
           </Button>
 

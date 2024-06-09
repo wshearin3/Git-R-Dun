@@ -17,7 +17,7 @@ function Homepage (){
             <Button colorScheme='blue' my="5px">Login</Button>
   </Link>
   <Heading size='lg' my="5px">Register</Heading>
-  <Stack spacing={3}>
+  <Stack spacing={3} >
                                 <Input placeholder='Username' size='sm' />
                                 <Input placeholder='Email' size='sm' />
                                 <Input placeholder='Password' size='sm' />

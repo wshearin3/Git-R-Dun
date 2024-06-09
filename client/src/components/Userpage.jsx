@@ -71,6 +71,15 @@ function Userpage() {
                                 </ul>
                             </Text>
                         </Box>
+                        <Stack spacing={4} direction='row' align='center' my="2px">
+        <Link to={"/"}>
+
+          <Button colorScheme='blue' size='sm'>
+            Home Page
+          </Button>
+
+        </Link>
+      </Stack>
                     </Stack>
                 </CardBody>
             </Card>

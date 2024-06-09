@@ -14,7 +14,7 @@ function Homepage (){
                                 <Input placeholder='Password' size='sm' />
                                 </Stack>
         <Link to={"/userpage"}>
-            <Button colorScheme='blue' my="5px">Login</Button>
+            <Button colorScheme='purple' my="5px">Login</Button>
   </Link>
   <Heading size='lg' my="5px">Register</Heading>
   <Stack spacing={3} >
@@ -23,7 +23,7 @@ function Homepage (){
                                 <Input placeholder='Password' size='sm' />
                                 </Stack>
   <Link to={"/userpage"}>
-            <Button colorScheme='blue' my="5px">Register</Button>
+            <Button colorScheme='purple' my="5px">Register</Button>
   </Link>
   </>
     )

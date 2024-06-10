@@ -6,7 +6,6 @@ const path = require("path");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-//const routes = require('./routes')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -22,15 +21,13 @@ app.use(express.json());
 //   context: authMiddleware
 // }));
 
-// if (process.env.NODE_ENV === "production") { // HELP is this supposed to be /build? //
-//   app.use(express.static(path.join(__dirname, "../client/build")));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+}
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
-
-//.use(routes);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 const startApolloServer = async () => {
   await server.start();

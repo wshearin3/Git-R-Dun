@@ -43,7 +43,11 @@ export const ADD_PROJECT = gql`
 
 export const ADD_TASK = gql`
   mutation addTask(
-    $name: String!, $projectId: ID!, $owner: ID!, $status: String) {
+    $name: String!
+    $projectId: ID!
+    $owner: ID!
+    $status: String
+  ) {
     addTask(
       name: $name
       projectId: $projectId

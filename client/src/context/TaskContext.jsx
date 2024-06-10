@@ -1,6 +1,6 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_PROJECTS } from '../utils/queries';
+import React, { createContext, useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_PROJECTS } from "../utils/queries";
 
 // Create the context
 export const TaskContext = createContext();
@@ -8,10 +8,10 @@ export const TaskContext = createContext();
 // Create the provider component
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([
-    { id: 0, name: 'Task Name', owner: 'Task Owner', status: 'Status' },
-    { id: 1, name: 'Task 1', owner: 'John', status: 'Done' },
-    { id: 2, name: 'Task 2', owner: 'Jane', status: 'In Progress' },
-    { id: 3, name: 'Task 3', owner: 'Bob', status: 'Not Started' },
+    { id: 0, name: "Task Name", owner: "Task Owner", status: "Status" },
+    { id: 1, name: "Task 1", owner: "John", status: "Done" },
+    { id: 2, name: "Task 2", owner: "Jane", status: "In Progress" },
+    { id: 3, name: "Task 3", owner: "Bob", status: "Not Started" },
   ]);
 
   const [projects, setProjects] = useState([]);
@@ -25,10 +25,9 @@ export const TaskProvider = ({ children }) => {
       console.log(projects);
     }
   }, [loading, error, projectData]);
-  useEffect(() =>
-  {
+  useEffect(() => {
     console.log(projects);
-  },[projects])
+  }, [projects]);
   const getTasksFromDatabase = () => {
     /**
      * This function is intended to fetch tasks from the database.
@@ -50,7 +49,9 @@ export const TaskProvider = ({ children }) => {
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, getTasksFromDatabase, addTaskToDatabase }}>
+    <TaskContext.Provider
+      value={{ tasks, getTasksFromDatabase, addTaskToDatabase }}
+    >
       {children}
     </TaskContext.Provider>
   );

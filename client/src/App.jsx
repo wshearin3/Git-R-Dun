@@ -1,20 +1,20 @@
-import * as React from 'react'
-import TaskList from './components/taskList';
-import { TaskProvider } from './context/TaskContext';
-import Homepage from'./components/Homepage';
+import * as React from "react";
+import TaskList from "./components/taskList";
+import { TaskProvider } from "./context/TaskContext";
+import Homepage from "./components/Homepage";
 
 // 1. import `ChakraProvider` component
-import { ChakraProvider, Heading } from '@chakra-ui/react';
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { Outlet } from 'react-router-dom';
+} from "@apollo/client";
+import { Outlet } from "react-router-dom";
 
-const httpLink = createHttpLink ({
-  uri: 'http://localhost:3001/graphql',
+const httpLink = createHttpLink({
+  uri: "http://localhost:3001/graphql",
 });
 
 const client = new ApolloClient({
@@ -32,12 +32,14 @@ function App() {
     <ChakraProvider>
       <ApolloProvider client={client}>
         <TaskProvider>
-          <Heading as='h1' size='2xl' my="5px" >Git-R-Dun</Heading>
+          <Heading as="h1" size="2xl" my="5px">
+            Git-R-Dun
+          </Heading>
           <Outlet />
         </TaskProvider>
       </ApolloProvider>
     </ChakraProvider>
-  )
+  );
 }
 
 export default App;

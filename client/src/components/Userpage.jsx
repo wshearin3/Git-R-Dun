@@ -28,8 +28,9 @@ function Userpage() {
                                     <option value='option3'>User 3</option>
                                 </Select>
                             </Stack>
-                            <Button colorScheme='purple' my='5px'>
-                                Create Project  </Button>
+                            <Link to={"/projectpage"}>
+                            <Button colorScheme='purple' my='5px'>Create Project  </Button>
+                            </Link>
                         </Box>
                         <Box>
 

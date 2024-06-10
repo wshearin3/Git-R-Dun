@@ -1,8 +1,15 @@
 import react, { useContext, useState } from "react";
-import { VStack, Flex, Box, Heading, Text, Stack, Button } from "@chakra-ui/react";
+import {
+  VStack,
+  Flex,
+  Box,
+  Heading,
+  Text,
+  Stack,
+  Button,
+} from "@chakra-ui/react";
 import { TaskContext } from "../context/TaskContext";
 import { Link } from "react-router-dom";
-
 
 function TaskList() {
   const { tasks, getTasksFromDatabase, addTaskToDatabase } =
@@ -10,29 +17,28 @@ function TaskList() {
 
   return (
     <>
-      <Heading as='h2' size='xl'>
+      <Heading as="h2" size="xl">
         Project Name
       </Heading>
-      <Heading as='h4' size='md'>
+      <Heading as="h4" size="md">
         Project Description
       </Heading>
-      <Heading as='h2' size='xl' my="5px">
+      <Heading as="h2" size="xl" my="5px">
         Members
       </Heading>
-      <Text pt='2' fontSize='sm'>
+      <Text pt="2" fontSize="sm">
         <ul>
           <li>Group Member 1</li>
           <li>Group Member 2</li>
           <li>Group Member 3</li>
         </ul>
       </Text>
-      <Heading as='h2' size='xl' my="5px">
+      <Heading as="h2" size="xl" my="5px">
         Tasks
       </Heading>
       <VStack
         spacing={8}
         w="100%"
-
         bgColor="gray.100"
         px="6"
         py="6"
@@ -63,10 +69,10 @@ function TaskList() {
                 task.status == "Done"
                   ? "green.700"
                   : task.status == "In Progress"
-                    ? "blue.800"
-                    : task.status == "Not Started"
-                      ? "red.600"
-                      : ""
+                  ? "blue.800"
+                  : task.status == "Not Started"
+                  ? "red.600"
+                  : ""
               }
             >
               {task.status}
@@ -74,22 +80,18 @@ function TaskList() {
           </Flex>
         ))}
       </VStack>
-      <Stack spacing={4} direction='row' align='center' my="2px">
+      <Stack spacing={4} direction="row" align="center" my="2px">
         <Link to={"/"}>
-
-          <Button colorScheme='blue' size='sm'>
+          <Button colorScheme="blue" size="sm">
             Home Page
           </Button>
-
         </Link>
       </Stack>
-      <Stack spacing={4} direction='row' align='center' my="2px">
+      <Stack spacing={4} direction="row" align="center" my="2px">
         <Link to={"/userpage"}>
-
-          <Button colorScheme='purple' size='sm'>
+          <Button colorScheme="purple" size="sm">
             User Page
           </Button>
-
         </Link>
       </Stack>
     </>

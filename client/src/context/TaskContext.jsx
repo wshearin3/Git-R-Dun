@@ -47,8 +47,21 @@ export const TaskProvider = ({ children }) => {
     setTasks([...tasks, newTask]);
   };
 
+  const updateTaskStatus = (taskId) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        const statusOrder = ['Not Started', 'In Progress', 'Done'];
+        const currentIndex = statusOrder.indexOf(task.status);
+        const newIndex = (currentIndex + 1) % statusOrder.length;
+        return { ...task, status: statusOrder[newIndex] };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
+
   return (
-    <TaskContext.Provider value={{ tasks, getTasksFromDatabase, addTask }}>
+    <TaskContext.Provider value={{ tasks, getTasksFromDatabase, addTask, updateTaskStatus }}>
       {children}
     </TaskContext.Provider>
   );

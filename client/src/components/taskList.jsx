@@ -23,7 +23,7 @@ import { TaskContext } from "../context/TaskContext";
 import { Link } from "react-router-dom";
 
 function TaskList() {
-  const { tasks, addTask } = useContext(TaskContext);
+  const { tasks, addTask, updateTaskStatus } = useContext(TaskContext);
   const [isOpen, setIsOpen] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");

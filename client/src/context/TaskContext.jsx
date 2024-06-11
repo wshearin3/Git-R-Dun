@@ -1,6 +1,6 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_PROJECTS } from '../utils/queries';
+import React, { createContext, useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_PROJECTS } from "../utils/queries";
 
 // Create the context
 export const TaskContext = createContext();
@@ -8,10 +8,10 @@ export const TaskContext = createContext();
 // Create the provider component
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([
-    { id: 0, name: 'Task Name', owner: 'Task Owner', status: 'Status' },
-    { id: 1, name: 'Task 1', owner: 'John', status: 'Done' },
-    { id: 2, name: 'Task 2', owner: 'Jane', status: 'In Progress' },
-    { id: 3, name: 'Task 3', owner: 'Bob', status: 'Not Started' },
+    { id: 0, name: "Task Name", owner: "Task Owner", status: "Status" },
+    { id: 1, name: "Task 1", owner: "John", status: "Done" },
+    { id: 2, name: "Task 2", owner: "Jane", status: "In Progress" },
+    { id: 3, name: "Task 3", owner: "Bob", status: "Not Started" },
   ]);
   const [projects, setProjects] = useState([]);
   const { loading, error, data: projectData } = useQuery(QUERY_PROJECTS);
@@ -40,8 +40,8 @@ export const TaskProvider = ({ children }) => {
     const newTask = {
       id: tasks.length + 1,
       name: taskName,
-      owner: 'New Owner',
-      status: 'Not Started',
+      owner: "New Owner",
+      status: "Not Started",
       description: taskDescription,
     };
     setTasks([...tasks, newTask]);

@@ -5,12 +5,13 @@ import TaskList from "./components/taskList";
 import Members from "./components/Members";
 import Homepage from "./components/Homepage";
 import Userpage from "./components/Userpage";
+import ErrorPage from "./components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

@@ -37,6 +37,9 @@ function TaskList() {
     }
   };
 
+const handleStatusClick = (taskId) => {
+    updateTaskStatus(taskId);
+  };
 
 
   return (
@@ -91,6 +94,8 @@ function TaskList() {
                   ? "red.600"
                   : ""
               }
+              cursor="pointer"
+              onClick={() => handleStatusClick(task.id)}
             >
               {task.status}
             </Box>
